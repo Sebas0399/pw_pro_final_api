@@ -2,17 +2,18 @@ package com.example.demo.repository.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 @Entity
-@Table(name = "foro_discusion")
-public class ForoDiscusion {
+@Table(name = "foro")
+public class Foro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+    @Column(name = "foro_tema")
+    private String tema;
 
-    @Column(name = "fodi_comentarios")
+    @Column(name = "foro_comentarios")
     private List<String> comentarios;
 
     public List<String> getComentarios() {
@@ -29,5 +30,13 @@ public class ForoDiscusion {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
     }
 }
