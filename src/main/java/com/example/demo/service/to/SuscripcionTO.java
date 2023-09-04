@@ -24,7 +24,7 @@ public class SuscripcionTO extends RepresentationModel<SuscripcionTO> implements
     private String correoElectronico;
 
 
-    private String carrera;
+   
 
 
     private String codigo;
@@ -75,15 +75,7 @@ public class SuscripcionTO extends RepresentationModel<SuscripcionTO> implements
     }
 
 
-    public String getCarrera() {
-        return carrera;
-    }
-
-
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
-    }
-
+  
 
     public String getCodigo() {
         return codigo;

@@ -12,9 +12,15 @@ public class Noticia {
     @Column(name = "noti_id", nullable = false)
     private Integer id;
 
-    @Column(name = "noti_texto")
+    @Column(name = "noti_texto", length = 10000)
     private String texto;
+    
+    @Column(name = "noti_titulo", length = 5000)
+    private String titulo;
 
+    @Column(name = "noti_resumen", length = 8000)
+    private String resumen;
+    
     @Column(name = "noti_video")
     private String video;
 
