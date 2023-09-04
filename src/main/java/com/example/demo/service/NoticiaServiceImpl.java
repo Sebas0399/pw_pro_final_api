@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.repository.INoticiaRepository;
 import com.example.demo.repository.model.Noticia;
 import com.example.demo.service.to.NoticiaTO;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class NoticiaServiceImpl implements INoticiaService{
     private INoticiaRepository noticiaRepository;
     @Override
     public void create(Noticia noticia) {
+
         this.noticiaRepository.create(noticia);
     }
 

@@ -12,13 +12,16 @@ public class Noticia {
     @Column(name = "noti_id", nullable = false)
     private Integer id;
 
-    @Column(name = "noti_texto")
+    @Column(name = "noti_titulo")
+    private String titulo;
+
+    @Column(name = "noti_texto", columnDefinition = "TEXT")
     private String texto;
 
     @Column(name = "noti_video")
     private String video;
 
-    @Column(name = "noti_imagen")
+    @Column(name = "noti_imagen",columnDefinition = "TEXT")
     private String imagen;
 
     @Column(name = "noti_fecha")
@@ -62,5 +65,13 @@ public class Noticia {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }
