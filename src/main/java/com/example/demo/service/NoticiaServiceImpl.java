@@ -43,6 +43,7 @@ public class NoticiaServiceImpl implements INoticiaService {
 		noticiaTO.setVideo(noticia.getVideo());
 		noticiaTO.setTitulo(noticia.getTitulo());
 		noticiaTO.setAutor(noticia.getAutor());
+	
 
 		return noticiaTO;
 	}
@@ -55,6 +56,7 @@ public class NoticiaServiceImpl implements INoticiaService {
 		n.setTexto(noticiaTO.getTexto());
 		n.setTitulo(noticiaTO.getTitulo());
 		n.setVideo(noticiaTO.getVideo());
+		n.setAutor(noticiaTO.getAutor());
 		return n;
 	}
 
