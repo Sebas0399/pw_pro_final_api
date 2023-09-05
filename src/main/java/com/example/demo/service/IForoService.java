@@ -1,12 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.repository.model.Foro;
-
 import java.util.List;
 
+import com.example.demo.service.to.ForoTO;
+
 public interface IForoService {
-    public void create(Foro foroDiscusion);
-    public void update(Foro foroDiscusion);
-    public List<Foro> readAll();
-    public Foro readById(Integer id);
+    public void create(ForoTO foroDiscusion);
+    public void update(ForoTO foroDiscusion);
+    public List<ForoTO> readAll();
+    public ForoTO readById(Integer id);
 }

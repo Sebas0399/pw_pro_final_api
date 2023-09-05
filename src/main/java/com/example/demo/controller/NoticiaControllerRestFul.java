@@ -17,7 +17,7 @@ public class NoticiaControllerRestFul {
     @Autowired
     private INoticiaService noticiaService;
     @PostMapping
-    public ResponseEntity<Noticia> postear(@RequestBody Noticia noticia){
+    public ResponseEntity<NoticiaTO> postear(@RequestBody NoticiaTO noticia){
         this.noticiaService.create(noticia);
         return new ResponseEntity<>(noticia,null,200);
     }

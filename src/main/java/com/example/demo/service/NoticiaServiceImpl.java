@@ -14,9 +14,9 @@ public class NoticiaServiceImpl implements INoticiaService{
     @Autowired
     private INoticiaRepository noticiaRepository;
     @Override
-    public void create(Noticia noticia) {
-
-        this.noticiaRepository.create(noticia);
+    public void create(NoticiaTO noticia) {
+    	Noticia n=this.convertirTO(noticia);
+    	this.noticiaRepository.create(n);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class NoticiaServiceImpl implements INoticiaService{
         return this.noticiaRepository.realAll().stream().map(x->convertir(x)).toList();
     }
 
-    public NoticiaTO convertir(Noticia noticia){
+    private NoticiaTO convertir(Noticia noticia){
         NoticiaTO noticiaTO=new NoticiaTO();
         noticiaTO.setFecha(noticia.getFecha());
         noticiaTO.setId(noticia.getId());
@@ -39,4 +39,16 @@ public class NoticiaServiceImpl implements INoticiaService{
         noticiaTO.setVideo(noticia.getVideo());
         return noticiaTO;
     }
+    
+    private Noticia convertirTO(NoticiaTO noticiaTO) {
+    	Noticia n=new Noticia();
+    	n.setId(noticiaTO.getId());
+    	n.setFecha(noticiaTO.getFecha());
+    	n.setImagen(noticiaTO.getImagen());
+    	n.setTexto(noticiaTO.getTexto());
+    	n.setTitulo(noticiaTO.getTitulo());
+    	n.setVideo(noticiaTO.getVideo());
+    	return n;
+    }
+    
 }

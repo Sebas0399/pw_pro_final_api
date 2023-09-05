@@ -1,13 +1,21 @@
 package com.example.demo.controller;
 
-import com.example.demo.repository.model.Foro;
-import com.example.demo.repository.model.Noticia;
-import com.example.demo.service.IForoService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.example.demo.repository.model.Foro;
+import com.example.demo.service.IForoService;
+import com.example.demo.service.to.ForoTO;
 
 @RestController
 @RequestMapping("/foros")
@@ -16,22 +24,22 @@ public class ForoControllerRestFul {
     @Autowired
     private IForoService foroService;
     @GetMapping
-    public List<Foro> obtenerTodos(){
+    public List<ForoTO> obtenerTodos(){
         return this.foroService.readAll();
     }
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Foro> obtenerForo(@PathVariable Integer id){
+    public ResponseEntity<ForoTO> obtenerForo(@PathVariable Integer id){
         var foro=this.foroService.readById(id);
         return new ResponseEntity<>(foro,null,200);
     }
     @PostMapping
-    public ResponseEntity<Foro> postear(@RequestBody Foro foro){
+    public ResponseEntity<ForoTO> postear(@RequestBody ForoTO foro){
         this.foroService.create(foro);
         return new ResponseEntity<>(foro,null,200);
     }
 
     @PutMapping
-    public ResponseEntity<Foro> actualizar(@RequestBody Foro foro){
+    public ResponseEntity<ForoTO> actualizar(@RequestBody ForoTO foro){
         this.foroService.update(foro);
         return new ResponseEntity<>(foro,null,200);
     }

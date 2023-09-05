@@ -15,6 +15,8 @@ public class NoticiaTO extends RepresentationModel<NoticiaTO> implements Seriali
     private String imagen;
 
     private LocalDateTime fecha;
+    
+    private String titulo;
 
     public Integer getId() {
         return id;
@@ -55,4 +57,14 @@ public class NoticiaTO extends RepresentationModel<NoticiaTO> implements Seriali
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+    
+    
 }
