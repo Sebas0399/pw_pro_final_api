@@ -15,8 +15,9 @@ public class NoticiaRepositoryImpl implements INoticiaRepository{
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public void create(Noticia noticia) {
+    public Noticia create(Noticia noticia) {
         this.entityManager.persist(noticia);
+        return noticia;
     }
 
     @Override

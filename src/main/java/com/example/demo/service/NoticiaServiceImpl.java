@@ -14,9 +14,9 @@ public class NoticiaServiceImpl implements INoticiaService{
     @Autowired
     private INoticiaRepository noticiaRepository;
     @Override
-    public void create(Noticia noticia) {
+    public Noticia create(Noticia noticia) {
 
-        this.noticiaRepository.create(noticia);
+        return this.noticiaRepository.create(noticia);
     }
 
     @Override

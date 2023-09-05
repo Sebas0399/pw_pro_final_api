@@ -11,8 +11,8 @@ public class ForoServiceImpl implements IForoService{
     @Autowired
     private IForoRepository foroRepository;
     @Override
-    public void create(Foro foroDiscusion) {
-        this.foroRepository.create(foroDiscusion);
+    public Foro create(Foro foroDiscusion) {
+        return this.foroRepository.create(foroDiscusion);
     }
 
     @Override
