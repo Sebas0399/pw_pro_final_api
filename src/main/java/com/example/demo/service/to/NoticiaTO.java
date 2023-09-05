@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 public class NoticiaTO extends RepresentationModel<NoticiaTO> implements Serializable {
     private Integer id;
+    private String autor;
 
     private String texto;
 
@@ -65,6 +66,15 @@ public class NoticiaTO extends RepresentationModel<NoticiaTO> implements Seriali
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	
     
     
 }

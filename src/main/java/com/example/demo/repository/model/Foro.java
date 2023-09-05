@@ -14,9 +14,6 @@ public class Foro {
     
     @Column(name = "foro_tema")
     private String tema;
-    
-    @Column(name = "foro_autor")
-    private String autor;
 
     @Column(name = "foro_comentarios")
     private List<String> comentarios;
@@ -44,13 +41,5 @@ public class Foro {
     public void setTema(String tema) {
         this.tema = tema;
     }
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
     
 }

@@ -14,8 +14,9 @@ public class ForoRepositoryImpl implements IForoRepository{
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public void create(Foro foroDiscusion) {
+    public Foro create(Foro foroDiscusion) {
         this.entityManager.persist(foroDiscusion);
+        return foroDiscusion;
     }
 
     @Override

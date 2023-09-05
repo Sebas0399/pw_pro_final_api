@@ -15,6 +15,9 @@ public class Noticia {
     @Column(name = "noti_titulo")
     private String titulo;
 
+    @Column(name = "noti_autor")
+    private String autor;
+    
     @Column(name = "noti_texto", columnDefinition = "TEXT")
     private String texto;
 
@@ -74,4 +77,13 @@ public class Noticia {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+    
 }

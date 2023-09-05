@@ -14,16 +14,19 @@ public class ForoServiceImpl implements IForoService{
 	
     @Autowired
     private IForoRepository foroRepository;
+    
     @Override
-    public void create(ForoTO foroDiscusion) {
+    public ForoTO create(ForoTO foroDiscusion) {
         Foro a=this.convertir(foroDiscusion);
         this.foroRepository.create(a);
+        return foroDiscusion;
     }
 
     @Override
-    public void update(ForoTO foroDiscusion) {
+    public ForoTO update(ForoTO foroDiscusion) {
     	Foro a=this.convertir(foroDiscusion);
         this.foroRepository.update(a);
+        return foroDiscusion;
     }
 
     @Override
@@ -41,7 +44,6 @@ public class ForoServiceImpl implements IForoService{
     private ForoTO convertirTO(Foro foro) {
     	ForoTO foroto=new ForoTO();
     	foroto.setId(foro.getId());
-    	foroto.setAutor(foro.getAutor());
     	foroto.setComentarios(foro.getComentarios());
     	foroto.setTema(foro.getTema());
     	return foroto;
@@ -50,7 +52,6 @@ public class ForoServiceImpl implements IForoService{
     private Foro convertir(ForoTO foroto) {
     	Foro foro=new Foro();
     	foro.setId(foroto.getId());
-    	foro.setAutor(foroto.getAutor());
     	foro.setTema(foroto.getTema());
     	foro.setComentarios(foroto.getComentarios());
     	return foro;
