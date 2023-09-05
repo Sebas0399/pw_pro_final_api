@@ -17,7 +17,7 @@ public class Queja {
     @Column(name = "form_correo")
     private String correo;
 
-    @Column(name = "form_descripcion")
+    @Column(name = "form_descripcion",columnDefinition = "TEXT")
     private String descripcion;
 
     //GET & SET

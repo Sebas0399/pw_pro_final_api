@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.repository.IQuejaRepository;
 import com.example.demo.repository.model.Queja;
+import com.example.demo.service.to.QuejaTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +21,22 @@ public class QuejaServiceImpl implements IQuejaService{
     }
 
     @Override
-    public List<Queja> buscarTodos() {
-        return this.quejaRepository.buscarTodos();
+    public List<QuejaTO> buscarTodos() {
+        return this.quejaRepository.buscarTodos().stream().map(x->convertir(x)).toList();
     }
 
     @Override
-    public Queja buscarID(Integer id) {
-        return this.quejaRepository.buscarID(id);
+    public QuejaTO buscarID(Integer id) {
+        return convertir(this.quejaRepository.buscarID(id));
+    }
+    public QuejaTO convertir(Queja queja) {
+    	QuejaTO quejato= new QuejaTO();
+    	quejato.setCorreo(queja.getCorreo());
+    	quejato.setDescripcion(queja.getDescripcion());
+    	quejato.setId(queja.getId());
+    	quejato.setNombre(queja.getNombre());
+    	return quejato;
+    	
     }
 
 }

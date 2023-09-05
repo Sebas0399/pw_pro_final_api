@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.repository.model.Queja;
 import com.example.demo.service.IQuejaService;
+import com.example.demo.service.to.QuejaTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +20,11 @@ public class QuejaControllerRestFul {
     private IQuejaService quejaService;
 
     @GetMapping
-    public List<Queja> obtenerTodos(){
+    public List<QuejaTO> obtenerTodos(){
         return this.quejaService.buscarTodos();
     }
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Queja> obtenerQueja(@PathVariable Integer id){
+    public ResponseEntity<QuejaTO> obtenerQueja(@PathVariable Integer id){
         var formulario = this.quejaService.buscarID(id);
         return new ResponseEntity<>(formulario, null,200);
     }

@@ -24,7 +24,7 @@ public class NoticiaControllerRestFul {
     @Autowired
     private INoticiaService noticiaService;
     
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<NoticiaTO> postear(@RequestBody NoticiaTO noticia){
         try {
             NoticiaTO nuevaNoticia = this.noticiaService.create(noticia);

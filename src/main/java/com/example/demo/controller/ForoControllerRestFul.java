@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class ForoControllerRestFul {
 	@Autowired
 	private IForoService foroService;
 
-	@GetMapping(path = "/{id}")
+	@GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ForoTO> obtenerForo(@PathVariable Integer id) {
 		var foro = this.foroService.readById(id);
 		if (foro != null) {
@@ -35,7 +36,7 @@ public class ForoControllerRestFul {
 		}
 	}
 
-	@PostMapping
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ForoTO> postear(@RequestBody ForoTO foro) {
 		try {
 			ForoTO nuevoForo = this.foroService.create(foro);
@@ -45,7 +46,7 @@ public class ForoControllerRestFul {
 		}
 	}
 
-	@PutMapping
+	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ForoTO> actualizar(@RequestBody ForoTO foro) {
 		try {
 			ForoTO nuevoForo = this.foroService.update(foro);
@@ -55,7 +56,7 @@ public class ForoControllerRestFul {
 		}
 	}
 
-	@GetMapping
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ForoTO>> obtenerTodos() {
 		try {
 			var foros = this.foroService.readAll();
